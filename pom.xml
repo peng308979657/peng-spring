@@ -102,9 +102,9 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>mldnspring-ioc</module>
-		<module>mldnspring-di</module>
-		<module>mldnspring-context</module>
+		<module>spring-ioc</module>
+		<module>spring-di</module>
+		<module>spring-context</module>
 		<module>spring-ioc</module>
 	</modules>
 </project>
