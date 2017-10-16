@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:annotation-config/>
+	<!-- 现在的项目要求穷annotation 注解配置，次项随着版本的更新，可以不写 -->
+	<context:component-scan base-package="cn.peng.spring"/>
+	<!-- 定义注解的扫描包，也就是说你必须配置好扫描包之后，改包中的所有类上出现的注解信息 -->
+</beans>
