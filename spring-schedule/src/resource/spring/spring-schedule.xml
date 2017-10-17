@@ -2,42 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
+		http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task-4.3.xsd
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<!-- 定义了一个新的专门用于自定义任务的调度方法的工厂任务类 -->
-	<bean id="methodTaskFactory" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject"> <!-- 定义要执行的任务程序类对象 -->
-			<bean class="cn.peng.spring.schedule.quzrtz.MyTask"/> <!-- 任务执行类 -->
-		</property>
-		<property name="targetMethod" value="runTack"/> <!-- 设置执行任务的处理方法 -->
-	</bean>
-	
-	
-	<!-- 定义要任务触发的工厂类，使CRON进行任务的触发操作 -->
-	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<!-- 定义每一次间隔触发时要执行的具体任务详情 -->
-		<property name="jobDetail" ref="methodTaskFactory"/>
-		<!-- 定义任务的触发时间 -->
-		<property name="cronExpression" value="* * * * * ?"/>
-	</bean>
-	
-	<!-- 配置任务的执行调度器 -->
- 	<bean id="scheduleFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
- 		<property name="triggers">
- 			<array>
- 				<ref bean="cronTrigger"/> <!-- 设置任务触发器 -->
- 			</array>
- 		</property>
- 	</bean>
+	<!-- 将定时任务的调度类配置在spring 容器里面 -->
+	<bean id="myTask" class="cn.peng.spring.schedule.task.MyTask"/>
+	<task:scheduled-tasks> <!-- 进行springTask任务的调度配置 -->
+		<task:scheduled ref="myTask" method="runJobTack" cron="* * * * * ? "/> <!-- 定义要使用的任务类 -->
+	</task:scheduled-tasks>
 	
 	
 	<!-- 现在的项目要求启动Annotation注解配置，此项随着新版本的更新，不写也可以使用 -->
   	<context:annotation-config/>
   	<!-- 定义注解的扫描包，也就是说你必须配置好扫描包之后才可以扫描该包中所有类上出现的注解信息 -->
-  	<!-- <context:component-scan base-package="cn.mldn.mldnspring.dao,cn.mldn.mldnspring.service"/> -->
-  	<context:component-scan base-package="cn.mldn.mldnspring"/>
+  	<context:component-scan base-package="cn.peng.spring"/>
 </beans>

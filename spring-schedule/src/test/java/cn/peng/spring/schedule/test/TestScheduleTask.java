@@ -12,9 +12,9 @@ import junit.framework.TestCase;
 
 @ContextConfiguration(locations= {"classpath:spring/spring-*.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TestScheduleQuartZ extends TestCase {
+public class TestScheduleTask extends TestCase {
 	@Test
-	public void testQuartZ() {
+	public void testTask() {
 		try {
 			TimeUnit.MINUTES.sleep(10);
 		} catch (InterruptedException e) {

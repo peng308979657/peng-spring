@@ -1,4 +1,4 @@
-package cn.peng.spring.schedule.quzrtz;
+package cn.peng.spring.schedule.task;
 
 import java.text.SimpleDateFormat;
 
@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class MyTask {
 	
 	
-	protected void runTack() {//自己定义了一个方法名称
+	public void runJobTack() {//自己定义了一个方法名称
 		System.out.println("当前日期时间"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new java.util.Date()));
 
 	}
