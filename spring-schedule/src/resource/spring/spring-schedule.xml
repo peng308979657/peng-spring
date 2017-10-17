@@ -11,15 +11,13 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<!-- 将定时任务的调度类配置在spring 容器里面 -->
-	<bean id="myTask" class="cn.peng.spring.schedule.task.MyTask"/>
-	<task:scheduled-tasks> <!-- 进行springTask任务的调度配置 -->
-		<task:scheduled ref="myTask" method="runJobTack" cron="* * * * * ? "/> <!-- 定义要使用的任务类 -->
-	</task:scheduled-tasks>
 	
 	
 	<!-- 现在的项目要求启动Annotation注解配置，此项随着新版本的更新，不写也可以使用 -->
   	<context:annotation-config/>
   	<!-- 定义注解的扫描包，也就是说你必须配置好扫描包之后才可以扫描该包中所有类上出现的注解信息 -->
   	<context:component-scan base-package="cn.peng.spring"/>
+  	<task:annotation-driven/> <!--启用Annotation 的springTask配置  -->
+  	<!-- 设置一个同时运行的线程池的大小，也就是可以同时又两个调度任务执行 -->
+  	<task:scheduler id="schedulePool" pool-size="2"/>
 </beans>
