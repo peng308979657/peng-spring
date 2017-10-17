@@ -17,6 +17,9 @@
 		
 		<!-- 【BEFORE】其它开发包的版本管理【BEFORE】 -->
 		<junit.version>4.12</junit.version>
+		<quartz.version>2.3.0</quartz.version>
+		<log4j.version>2.9.1</log4j.version>
+		<slf4j.version>1.7.25</slf4j.version>
 		<!-- 【AFTER】其它开发包的版本管理【AFTER】 -->
 		
 		<!-- 【BEFORE】基础的pom环境属性【BEFORE】 -->
@@ -29,6 +32,25 @@
 
   	<dependencyManagement>
 		<dependencies>
+		
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+		
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -42,6 +64,13 @@
 				<version>${spring.version}</version>
 				<scope>test</scope>
 			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-tx</artifactId>
+			    <version>${spring.version}</version>
+			</dependency>
+			
 			
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -66,7 +95,11 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
-			
+				<dependency>
+				    <groupId>org.quartz-scheduler</groupId>
+				    <artifactId>quartz</artifactId>
+				    <version>${quartz.version}</version>
+				</dependency>
 		</dependencies>
 	</dependencyManagement>
 	
