@@ -16,7 +16,7 @@
 		<!-- 【AFTER】配置Spring的版本管理【AFTER】 -->
 		
 		<!-- 【BEFORE】其它开发包的版本管理【BEFORE】 -->
-		<junti.version>4.12</junti.version>
+		<junit.version>4.12</junit.version>
 		<!-- 【AFTER】其它开发包的版本管理【AFTER】 -->
 		
 		<!-- 【BEFORE】基础的pom环境属性【BEFORE】 -->
@@ -32,7 +32,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>${junti.version}</version>
+				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
 			
@@ -105,6 +105,6 @@
 		<module>spring-ioc</module>
 		<module>spring-di</module>
 		<module>spring-context</module>
-		<module>spring-ioc</module>
+		<module>spring-schedule</module>
 	</modules>
 </project>

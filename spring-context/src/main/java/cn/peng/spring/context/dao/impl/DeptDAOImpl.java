@@ -1,6 +1,5 @@
 package cn.peng.spring.context.dao.impl;
 
-import org.springframework.stereotype.Repository;
 
 import cn.peng.spring.context.dao.IDeptDAO;
 import cn.peng.spring.context.vo.Dept;
