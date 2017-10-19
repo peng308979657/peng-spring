@@ -11,13 +11,13 @@ public class MySQLDatabaseConnection {
 	public static final String PASSWORD = "mysqladmin";
 	
 	public static void main(String[] args) throws SQLException {
-		DriverManagerDataSource datasource = new DriverManagerDataSource();
-		datasource.setDriverClassName(DRIVER);
-		datasource.setUrl(URL);
-		datasource.setUsername(USERNAME);
-		datasource.setPassword(PASSWORD);
-		System.out.println(datasource.getConnection());
-		datasource.getConnection().close();
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName(DRIVER);
+		dataSource.setUrl(URL);
+		dataSource.setUsername(USERNAME);
+		dataSource.setPassword(PASSWORD);
+		System.out.println(dataSource.getConnection());
+		dataSource.getConnection().close();
 		
 	}
 }
