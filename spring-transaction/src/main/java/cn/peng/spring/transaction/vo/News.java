@@ -1,4 +1,4 @@
-package cn.peng.spring.jdbc.vo;
+package cn.peng.spring.transaction.vo;
 
 import java.io.Serializable;
 import java.util.Date;
